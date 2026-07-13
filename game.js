@@ -8,6 +8,8 @@ rocket.style.top = position + "px";
 let rotationDirection = "";
 
 document.addEventListener("keydown", (e) => {
+    if (gameOver) return;
+
     const halfHeight = rocket.offsetHeight / 2;
 
     if (e.code === "ArrowUp" || e.code === "KeyW") {
@@ -37,3 +39,22 @@ document.addEventListener("keydown", (e) => {
         }, 500)
     }
 });
+
+//collision
+let gameOver = false;
+function collision() {
+
+    const rocketArea = rocket.getBoundingClientRect();
+    const planet = document.querySelectorAll(".planet")
+    const planetArea = planet[0].getBoundingClientRect();
+    const isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
+
+    if(isColliding){
+        console.log("Game over")
+        gameOver = true;
+    }else{
+        console.log("Nooo")
+    }
+    requestAnimationFrame(collision)
+}
+requestAnimationFrame(collision)
