@@ -43,7 +43,7 @@ section{
     height:225px;
     width: 150px;
     transform:translate(-50%, -50%) rotate(90deg);
-    transition: 0.1s;
+    transition: rotate 0.5s, inset 0.1s;
 }
 #rocket-img{
     width: 100%;
