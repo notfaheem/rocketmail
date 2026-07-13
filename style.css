@@ -45,6 +45,16 @@ section{
     height:100vh;
     position: relative;
     background: url(public/bg.webp) left / cover;
+    background-position: 0%;
+    animation: bg infinite 70s
+}
+@keyframes bg {
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 100%;
+    }
 }
 
 
