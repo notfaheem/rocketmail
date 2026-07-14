@@ -2,23 +2,6 @@
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
 
-const step = 10;
-let position = game.clientHeight / 2;
-rocket.style.top = position + "px";
-let rotationDirection = "";
-
-document.addEventListener("keydown", (e) => {
-    if (gameOver) return;
-
-    if (e.code === "ArrowUp" || e.code === "KeyW") {
-        movement("up")
-    }
-
-    if (e.code === "ArrowDown" || e.code === "KeyS") {
-        movement("down")
-    }
-
-})
 
 
 //collision
