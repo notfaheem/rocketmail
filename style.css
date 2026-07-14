@@ -63,7 +63,7 @@ section{
     width: 115px;
     left:30%;
     transform:translate(-50%, -50%) rotate(90deg);
-    transition: rotate 0.5s, inset 0.1s;
+    transition: rotate 0.5s, top 0.1s;
     filter:contrast(1.5) brightness(0.7);
     border:1px solid #f00;
 }
