@@ -46,7 +46,7 @@ section{
     position: relative;
     background: url(public/bg.webp) left / cover;
     background-position: 0%;
-    animation: bg infinite 70s;
+    animation: bg infinite 100s;
 }
 @keyframes bg {
     0%{
@@ -72,6 +72,12 @@ section{
     height: 100%;
     background: url(public/rocket-c.png) center / cover;
 }
+#boom{
+    position:absolute;
+    right:0;
+    bottom:0;
+
+}
 
 .planet{
     left:calc(100% + 100px);
@@ -82,7 +88,10 @@ section{
     transition: rotate 0.5s, inset 0.1s;
 }
 .planet-move{
-    animation: planetMove 10s linear;
+    animation: planetMove 10s linear forwards;
+}
+.planet-pause {
+    animation-play-state: paused;
 }
 @keyframes planetMove {
     0%{

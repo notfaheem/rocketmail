@@ -13,6 +13,9 @@ document.addEventListener("keydown", (e) => {
     const halfHeight = rocket.offsetHeight / 2;
 
     if (e.code === "ArrowUp" || e.code === "KeyW") {
+
+        
+
         if (position - step >= halfHeight) {
             position -= step;
             rotationDirection = "up";
@@ -43,6 +46,7 @@ document.addEventListener("keydown", (e) => {
 //collision
 let gameOver = false;
 function collision() {
+    if (gameOver) return;
 
     const rocketArea = rocket.getBoundingClientRect();
     const planet = document.querySelectorAll(".planet")
@@ -50,10 +54,8 @@ function collision() {
     const isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
 
     if(isColliding){
-        console.log("Game over")
         gameOver = true;
-    }else{
-        console.log("Nooo")
+        planet[0].classList.add("planet-pause")
     }
     requestAnimationFrame(collision)
 }
