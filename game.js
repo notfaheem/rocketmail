@@ -2,7 +2,11 @@
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
 
-
+let mouseY = 0;
+document.addEventListener("mousemove", (e)=>{
+    mouseY = e.clientY;
+    console.log(mouseY)
+})
 
 //collision
 let gameOver = false;
