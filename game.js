@@ -4,12 +4,15 @@ const rocket = document.getElementById("rocket");
 
 let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
+    const windSize = game.getBoundingClientRect();
     mouseY = e.clientY;
-    console.log(mouseY)
-    rocket.style.transform = `translateX(${mouseY}px)`
+    if(mouseY < windSize.top + windSize.height * 0.15 || mouseY > windSize.top + windSize.height * 0.85){
+        return;
+    }
+    mouseY = mouseY - ((rocket.getBoundingClientRect().height)/2)
+    rocket.style.transform = `translateX(${mouseY}px)`;
 })
 
-// console.log(game.offsetHeight) for 10% dec
 
 //collision
 let gameOver = false;
