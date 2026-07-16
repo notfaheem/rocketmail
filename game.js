@@ -6,7 +6,10 @@ let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
     mouseY = e.clientY;
     console.log(mouseY)
+    rocket.style.transform = `translateX(${mouseY}px)`
 })
+
+// console.log(game.offsetHeight) for 10% dec
 
 //collision
 let gameOver = false;
