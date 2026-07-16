@@ -82,12 +82,12 @@ section{
 }
 
 .planet{
-    left:calc(100% + 100px);
     width:100px;
     height:100px;
     background: url(public/Planets/planet00.webp) center / cover;
     filter:contrast(1.5) brightness(0.7);
-    transition: rotate 0.5s, inset 0.1s;
+    position:absolute;
+    right: -100px;
 }
 .planet-move{
     animation: planetMove 10s linear forwards;
@@ -97,9 +97,9 @@ section{
 }
 @keyframes planetMove {
     0%{
-        left:110%;
+        transform: translate(0vw, 50vh);
     }
     100%{
-        left:-10%;
+        transform: translate(-110vw, 50vh);
     }
 }
