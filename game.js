@@ -1,6 +1,7 @@
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
+const planet = document.querySelectorAll(".planet")
 
 let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
@@ -20,7 +21,6 @@ function collision() {
     if (gameOver) return;
 
     const rocketArea = rocket.getBoundingClientRect();
-    const planet = document.querySelectorAll(".planet")
     const planetArea = planet[0].getBoundingClientRect();
     const isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
 
@@ -31,3 +31,22 @@ function collision() {
     requestAnimationFrame(collision)
 }
 requestAnimationFrame(collision)
+
+//score
+let score = 0;
+const scoreLine = document.getElementById("score")
+function scoreFun(){
+    if(gameOver){
+        return;
+    }
+    let scoreInt = setInterval(() => {
+        score += 1;
+        scoreLine.innerText = `Score : ${score}`
+    }, 500);
+}
+scoreFun()
+
+//planets
+function planets (){
+
+}

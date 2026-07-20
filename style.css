@@ -2,6 +2,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    color:#fff;
 }
 body{
     position: relative;
@@ -102,4 +103,12 @@ section{
     100%{
         transform: translate(-110vw, 50vh);
     }
+}
+
+
+#score{
+    position: absolute;
+    bottom: 10%;
+    left:10%;
+    font-size:50px;
 }
