@@ -36,12 +36,13 @@ requestAnimationFrame(collision)
 let score = 0;
 const scoreLine = document.getElementById("score")
 function scoreFun(){
-    if(gameOver){
-        return;
-    }
+    
     let scoreInt = setInterval(() => {
         score += 1;
-        scoreLine.innerText = `Score : ${score}`
+        scoreLine.innerText = `Score : ${score}`;
+        if(gameOver){
+            clearInterval(scoreInt)
+        }
     }, 500);
 }
 scoreFun()
@@ -49,4 +50,11 @@ scoreFun()
 //planets
 function planets (){
 
+}
+
+//random num gen
+function random (min, max){
+    const minCeild = Math.ceil(min);
+    const maxFloored = Math.floor(max)
+    return Math.floor(Math.random() * (maxFloored - minCeild + 1) + minCeild);
 }
