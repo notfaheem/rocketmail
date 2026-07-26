@@ -49,8 +49,12 @@ scoreFun()
 
 //planets
 function planets (){
-
+    const planetWrapper = document.querySelectorAll(".planet-wrapper")
+    const windSize = game.getBoundingClientRect();
+    const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
+    planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
 }
+planets()
 
 //random num gen
 function random (min, max){
