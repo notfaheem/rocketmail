@@ -1,7 +1,7 @@
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
-const planet = document.querySelectorAll(".planet")
+let planet = document.querySelectorAll(".planet")
 
 let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
@@ -47,24 +47,29 @@ function scoreFun(){
 }
 scoreFun()
 
-    score = 45
+score = 45
 //planets
+const planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (){
 
 
-    const planetWrapper = document.querySelectorAll(".planet-wrapper")
     const windSize = game.getBoundingClientRect();
     const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
     planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
 
-    if(score > 50 && score < 150){
+    
+    if(score > 50){
+        if(planet.length < 2){
+            clonePlanet()
+        }
+    }
+    if(score > 100 ){
         const sizeFactor = random(100, 150)
         planet[0].style.width = `${sizeFactor}px`;
         planet[0].style.height = `${sizeFactor}px`;
-
     }
 
-    // 2 planets, time/speed
+    // 2 planets, change planet livery, time/speed, asteroids, UFOs
 }
 planets()
 
@@ -72,6 +77,14 @@ planet[0].addEventListener("animationiteration", ()=>{
         planets()
     })
 
+
+function clonePlanet(){
+    console.log(planet)
+    const newPlanet = planetWrapper[0].cloneNode(true)
+    game.appendChild(newPlanet)
+    planet = document.querySelectorAll(".planet")
+    console.log(planet)
+}
 //random num gen
 function random (min, max){
     const minCeild = Math.ceil(min);
