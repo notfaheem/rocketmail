@@ -54,14 +54,20 @@ function planets (){
 
 
     const windSize = game.getBoundingClientRect();
-    const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
-    planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
-
+    // planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
+    planetWrapper.forEach(element => {
+        const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
+        element.style.transform = `translateY(${planetPosition}px)`;
+    });
     
     if(score > 50){
         if(planet.length < 2){
             clonePlanet()
         }
+        const bgFactor = random(0, 9);
+        console.log(planet)
+        planet[1].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
+        console.log(bgFactor)
     }
     if(score > 100 ){
         const sizeFactor = random(100, 150)
@@ -69,7 +75,7 @@ function planets (){
         planet[0].style.height = `${sizeFactor}px`;
     }
 
-    // 2 planets, change planet livery, time/speed, asteroids, UFOs
+    // 2 planets, change planet livery, time/speed (diff for diff planets), asteroids, UFOs
 }
 planets()
 
@@ -79,11 +85,9 @@ planet[0].addEventListener("animationiteration", ()=>{
 
 
 function clonePlanet(){
-    console.log(planet)
     const newPlanet = planetWrapper[0].cloneNode(true)
     game.appendChild(newPlanet)
     planet = document.querySelectorAll(".planet")
-    console.log(planet)
 }
 //random num gen
 function random (min, max){

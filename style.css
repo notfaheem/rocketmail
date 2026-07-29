@@ -91,7 +91,7 @@ section{
     right: -100px;
 }
 .planet-move{
-    animation: planetMove 10s linear infinite;
+    animation: planetMove 5s linear infinite;
 }
 .planet-pause {
     animation-play-state: paused;
