@@ -49,12 +49,20 @@ scoreFun()
 
 //planets
 function planets (){
+    console.log("animation start")
     const planetWrapper = document.querySelectorAll(".planet-wrapper")
     const windSize = game.getBoundingClientRect();
     const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
+    console.log(planetPosition)
     planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
+    planet[0].classList.remove("planet-move")
+    planet[0].classList.add("planet-move")
 }
 planets()
+
+planet[0].addEventListener("animationiteration", ()=>{
+        planets()
+    })
 
 //random num gen
 function random (min, max){
