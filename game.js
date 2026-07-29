@@ -54,26 +54,33 @@ function planets (){
 
 
     const windSize = game.getBoundingClientRect();
-    // planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
-    planetWrapper.forEach(element => {
-        const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
-        element.style.transform = `translateY(${planetPosition}px)`;
-    });
     
     if(score > 50){
         if(planet.length < 2){
             clonePlanet()
         }
         const bgFactor = random(0, 9);
-        console.log(planet)
         planet[1].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
-        console.log(bgFactor)
     }
     if(score > 100 ){
         const sizeFactor = random(100, 150)
         planet[0].style.width = `${sizeFactor}px`;
         planet[0].style.height = `${sizeFactor}px`;
+
+        const bgFactor = random(0, 9);
+        planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
     }
+    if (score > 200){
+        const sizeFactor = random(100, 150)
+        planet[1].style.width = `${sizeFactor}px`;
+        planet[1].style.height = `${sizeFactor}px`;
+    }
+
+    
+    planetWrapper.forEach(element => {
+        const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
+        element.style.transform = `translateY(${planetPosition}px)`;
+    });
 
     // 2 planets, change planet livery, time/speed (diff for diff planets), asteroids, UFOs
 }
