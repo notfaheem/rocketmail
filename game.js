@@ -47,16 +47,24 @@ function scoreFun(){
 }
 scoreFun()
 
+    score = 45
 //planets
 function planets (){
-    console.log("animation start")
+
+
     const planetWrapper = document.querySelectorAll(".planet-wrapper")
     const windSize = game.getBoundingClientRect();
     const planetPosition = random(windSize.top + windSize.height * 0.15, windSize.top + windSize.height * 0.85)
-    console.log(planetPosition)
     planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
-    planet[0].classList.remove("planet-move")
-    planet[0].classList.add("planet-move")
+
+    if(score > 50 && score < 150){
+        const sizeFactor = random(100, 150)
+        planet[0].style.width = `${sizeFactor}px`;
+        planet[0].style.height = `${sizeFactor}px`;
+
+    }
+
+    // 2 planets, time/speed
 }
 planets()
 

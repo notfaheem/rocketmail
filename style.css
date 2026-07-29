@@ -98,7 +98,7 @@ section{
 }
 @keyframes planetMove {
     0%{
-        transform: translateX(0vw);
+        transform: translateX(10vw);
     }
     100%{
         transform: translateX(-110vw);
