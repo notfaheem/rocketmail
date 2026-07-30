@@ -49,7 +49,7 @@ scoreFun()
 
 score = 250
 //planets
-const planetWrapper = document.querySelectorAll(".planet-wrapper")
+let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
 
     const windSize = game.getBoundingClientRect();
@@ -78,7 +78,7 @@ function planets (index){
         }
 
         const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
-        planet[0].style.transform = `translateY(${planetPosition}px)`;
+        planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
     }
 
 
@@ -106,18 +106,14 @@ function planets (index){
 
 
         const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
-        planet[1].style.transform = `translateY(${planetPosition}px)`;
+        planetWrapper[1].style.transform = `translateY(${planetPosition}px)`;
     }
 
     
-    // planetWrapper.forEach(element => {
-    //     
-    //     element.
-    // });
 
     // "2 planets", change planet livery, time/speed (diff for diff planets), asteroids, UFOs
 }
-planets()
+planets(0)
 
 planet[0].addEventListener("animationiteration", ()=>{
         planets(0)
@@ -127,6 +123,7 @@ function clonePlanet(){
     const newPlanet = planetWrapper[0].cloneNode(true)
     game.appendChild(newPlanet)
     planet = document.querySelectorAll(".planet")
+    planetWrapper = document.querySelectorAll(".planet-wrapper")
     planet[1].addEventListener("animationiteration", ()=>{
         planets(1)
     })
