@@ -61,11 +61,11 @@ function planets (index){
                 clonePlanet()
             }
         }
-        if(score > 50){
-            planet[0].style.animation = "planetMove 5s linear infinite";
-        }
+        
         if (score > 100) {
-            planet[0].style.animation = "planetMove 3s linear infinite";
+            if(planet[0].style.animation != "planetMove 3s linear infinite" ){
+                planet[0].style.animation = "planetMove 3s linear infinite";
+            }
             
             const bgFactor = random(0, 9);
             planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
@@ -76,7 +76,9 @@ function planets (index){
             planet[0].style.height = `${sizeFactor}px`;
         }
         if (score > 300) {
-            planet[0].style.animation = "planetMove 3s linear infinite";
+            if(planet[0].style.animation != "planetMove 2s linear infinite" ){
+                planet[0].style.animation = "planetMove 2s linear infinite";
+            }
         }
 
         const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
@@ -87,14 +89,23 @@ function planets (index){
     if(index == 1){
 
         if (score > 50) {
-            if (planet.length < 2) {
-                clonePlanet()
+            if(planet[1].style.animation != "planetMove 10s linear infinite" ){
+                planet[1].style.animation = "planetMove 10s linear infinite";
             }
             const bgFactor = random(0, 9);
             planet[1].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
         }
+
+        if(score > 70){
+            if(planet[1].style.animationDelay = "2s"){
+                planet[1].style.animationDelay = 0;
+            }
+        }
+
         if (score > 100) {
-            planet[1].style.animation = "planetMove 5s linear infinite";
+            if(planet[1].style.animation != "planetMove 5s linear infinite" ){
+                planet[1].style.animation = "planetMove 5s linear infinite";
+            }
         }
         if (score > 250) {
             const sizeFactor = random(100, 150)
@@ -102,7 +113,9 @@ function planets (index){
             planet[1].style.height = `${sizeFactor}px`;
         }
         if (score > 300) {
-            planet[1].style.animation = "planetMove 3s linear infinite";
+            if(planet[1].style.animation != "planetMove 3s linear infinite" ){
+                planet[1].style.animation = "planetMove 3s linear infinite";
+            }
         }
 
 
@@ -113,18 +126,22 @@ function planets (index){
     
 
     // "2 planets", "change planet livery", time/speed (diff for diff planets), asteroids, UFOs
+
+    // Dealing with spawning planet at the middle/random position at finishing its animation
 }
 planets(0)
 
 planet[0].addEventListener("animationiteration", ()=>{
-        planets(0)
-    })
+    planets(0)
+})
 
 function clonePlanet(){
     const newPlanet = planetWrapper[0].cloneNode(true)
     game.appendChild(newPlanet)
     planet = document.querySelectorAll(".planet")
     planetWrapper = document.querySelectorAll(".planet-wrapper")
+
+    planet[1].style.animationDelay = "2s"
     planet[1].addEventListener("animationiteration", ()=>{
         planets(1)
     })
