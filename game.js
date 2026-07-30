@@ -47,7 +47,7 @@ function scoreFun(){
 }
 scoreFun()
 
-score = 250
+// score = 250
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
@@ -56,22 +56,24 @@ function planets (index){
     
     if(index == 0){
 
-        if (score > 50) {
+        if (score > 30) {
             if (planet.length < 2) {
                 clonePlanet()
             }
         }
-
-        if (score > 100) {
+        if(score > 50){
             planet[0].style.animation = "planetMove 5s linear infinite";
+        }
+        if (score > 100) {
+            planet[0].style.animation = "planetMove 3s linear infinite";
+            
+            const bgFactor = random(0, 9);
+            planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
         }
         if (score > 200) {
             const sizeFactor = random(100, 150)
             planet[0].style.width = `${sizeFactor}px`;
             planet[0].style.height = `${sizeFactor}px`;
-
-            const bgFactor = random(0, 9);
-            planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
         }
         if (score > 300) {
             planet[0].style.animation = "planetMove 3s linear infinite";
@@ -91,7 +93,6 @@ function planets (index){
             const bgFactor = random(0, 9);
             planet[1].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
         }
-
         if (score > 100) {
             planet[1].style.animation = "planetMove 5s linear infinite";
         }
@@ -111,7 +112,7 @@ function planets (index){
 
     
 
-    // "2 planets", change planet livery, time/speed (diff for diff planets), asteroids, UFOs
+    // "2 planets", "change planet livery", time/speed (diff for diff planets), asteroids, UFOs
 }
 planets(0)
 
