@@ -55,6 +55,12 @@ function planets (index){
     const windSize = game.getBoundingClientRect();
     
     if(index == 0){
+        planet[0].style.transform = "translateX(10vw)"
+        planet[0].style.transform = "translateX(-50vw)"
+        setTimeout(()=>{
+            planet[0].style.transform = "translateX(-60vw)"
+
+        },1000)
 
         if (score > 30) {
             if (planet.length < 2) {
@@ -85,43 +91,6 @@ function planets (index){
         planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
     }
 
-
-    if(index == 1){
-
-        if (score > 50) {
-            if(planet[1].style.animation != "planetMove 10s linear infinite" ){
-                planet[1].style.animation = "planetMove 10s linear infinite";
-            }
-            const bgFactor = random(0, 9);
-            planet[1].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
-        }
-
-        if(score > 70){
-            if(planet[1].style.animationDelay = "2s"){
-                planet[1].style.animationDelay = 0;
-            }
-        }
-
-        if (score > 100) {
-            if(planet[1].style.animation != "planetMove 5s linear infinite" ){
-                planet[1].style.animation = "planetMove 5s linear infinite";
-            }
-        }
-        if (score > 250) {
-            const sizeFactor = random(100, 150)
-            planet[1].style.width = `${sizeFactor}px`;
-            planet[1].style.height = `${sizeFactor}px`;
-        }
-        if (score > 300) {
-            if(planet[1].style.animation != "planetMove 3s linear infinite" ){
-                planet[1].style.animation = "planetMove 3s linear infinite";
-            }
-        }
-
-
-        const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
-        planetWrapper[1].style.transform = `translateY(${planetPosition}px)`;
-    }
 
     
 

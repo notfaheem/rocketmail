@@ -89,10 +89,11 @@ section{
     filter:contrast(1.5) brightness(0.7);
     position:absolute;
     right: -100px;
+    transition: 0.3s;
 }
-.planet-move{
+/* .planet-move{
     animation: planetMove 7s linear infinite;
-}
+} */
 .planet-pause {
     animation-play-state: paused;
 }
