@@ -47,7 +47,7 @@ function scoreFun(){
 }
 scoreFun()
 
-score = 75
+score = 450
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
@@ -67,7 +67,7 @@ function planets (index){
     }
     if(score > 40){
         if (index== 0){
-            const sizeFactor = random(100, 150)
+            const sizeFactor = random(100, 120)
             planet[0].style.width = `${sizeFactor}px`;
             planet[0].style.height = `${sizeFactor}px`;
         }
@@ -87,7 +87,7 @@ function planets (index){
             }
         }
     }
-    if(score > 90){
+    if(score > 150){
         if (index== 0){
             const obsFactor = random(1,10)
             if(obsFactor > 8){
@@ -98,8 +98,48 @@ function planets (index){
             }
         }
     }
-
-
+    if(score > 200){
+        if (index== 1){
+            if(planet[1].style.transitionDuration != "4s"){
+                planet[1].style.transitionDuration = "4s"
+            }
+        }
+    }
+    if (score > 300) {
+        if (index == 0) {
+            const sizeFactor = random(100, 150)
+            planet[0].style.width = `${sizeFactor}px`;
+            planet[0].style.height = `${sizeFactor}px`;
+        }
+    }
+    if(score > 450){
+        if (index== 0){
+            if(planet[0].style.transitionDuration != "3s"){
+                planet[0].style.transitionDuration = "3s"
+            }
+        }
+    }
+    if(score > 550){
+        if (index== 1){
+            if(planet[1].style.transitionDuration != "3s"){
+                planet[1].style.transitionDuration = "3s"
+            }
+        }
+    }
+    if(score > 700){
+        if (index== 0){
+            if(planet[0].style.transitionDuration != "2s"){
+                planet[0].style.transitionDuration = "2s"
+            }
+        }
+    }
+    if(score > 800){
+        if (index== 1){
+            if(planet[1].style.transitionDuration != "2s"){
+                planet[1].style.transitionDuration = "2s"
+            }
+        }
+    }
 
 
 
