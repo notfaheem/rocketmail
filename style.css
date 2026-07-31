@@ -89,7 +89,9 @@ section{
     filter:contrast(1.5) brightness(0.7);
     position:absolute;
     right: -100px;
-    transition: 0.3s;
+    transition-property: transform;
+    transition-timing-function: linear;
+    transition-duration: 5s;
 }
 /* .planet-move{
     animation: planetMove 7s linear infinite;

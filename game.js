@@ -47,20 +47,49 @@ function scoreFun(){
 }
 scoreFun()
 
-// score = 250
+score = 75
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
-
     const windSize = game.getBoundingClientRect();
 
+    
+    planet.forEach(plt => {
+        plt.style.transform = "translateX(10vw)"
+        plt.style.transitionDuration = "5s";
+    });
+    
+    if(score > 20){
+        if (index== 0){
+            const bgFactor = random(0, 9);
+            planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
+        }
+    }
+    if(score > 40){
+        if (index== 0){
+            const sizeFactor = random(100, 150)
+            planet[0].style.width = `${sizeFactor}px`;
+            planet[0].style.height = `${sizeFactor}px`;
+        }
+    }
+    if(score > 60){
+        if (index== 0){
+            if(planet[0].style.transitionDuration != "4s"){
+                planet[0].style.transitionDuration = "4s"
+            }
+        }
+    }
+    if(score > 90){
+        if (index== 0){
+            if (planet.length < 2) {
+                clonePlanet()
+            }
+        }
+    }
 
-    planet[0].style.transform = "translateX(10vw)"
-    planet[0].style.transform = "translateX(-50vw)"
-    setTimeout(() => {
-        planet[0].style.transform = "translateX(-60vw)"
 
-    }, 1000)
+
+
 
     if (score > 30) {
         if (planet.length < 2) {
@@ -69,9 +98,7 @@ function planets (index){
     }
 
     if (score > 100) {
-        if (planet[0].style.animation != "planetMove 3s linear infinite") {
-            planet[0].style.animation = "planetMove 3s linear infinite";
-        }
+        
 
         const bgFactor = random(0, 9);
         planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
@@ -89,10 +116,16 @@ function planets (index){
 
     const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
     planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
+    planet.forEach(plt => {
+        plt.style.transform = "translateX(-110vw)"
+    });
 }
 
 
-    
+setInterval(() => {
+    console.log(planet[0].style.transform)
+    console.log(planet[0].style.transitionDuration)
+}, 1000);
 
     // "2 planets", "change planet livery", time/speed (diff for diff planets), asteroids, UFOs
 
@@ -101,6 +134,14 @@ function planets (index){
 planets(0)
 
 planet[0].addEventListener("transitionend", ()=>{
+    console.log("Transition End")
+    if(planet[0].style.transitionDuration != "0s"){
+        planet[0].style.transitionDuration = "0s";
+    }else{
+        planet[0].style.transitionDuration = "5s";
+    }
+    planet[0].style.transform = "translateX(10vw)";
+
     planets(0)
 })
 
@@ -110,8 +151,16 @@ function clonePlanet(){
     planet = document.querySelectorAll(".planet")
     planetWrapper = document.querySelectorAll(".planet-wrapper")
 
-    planet[1].style.animationDelay = "2s"
-    planet[1].addEventListener("animationiteration", ()=>{
+    // planet[1].style.animationDelay = "2s"
+    planet[1].addEventListener("transitionend", () => {
+        console.log("Transition End")
+        if (planet[0].style.transitionDuration != "0s") {
+            planet[0].style.transitionDuration = "0s";
+        } else {
+            planet[0].style.transitionDuration = "5s";
+        }
+        planet[0].style.transform = "translateX(10vw)";
+
         planets(1)
     })
 }
