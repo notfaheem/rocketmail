@@ -87,6 +87,17 @@ function planets (index){
             }
         }
     }
+    if(score > 90){
+        if (index== 0){
+            const obsFactor = random(1,10)
+            if(obsFactor > 8){
+                const bgFactor = random(1, 5);
+                planet[0].style.background = `url(public/UFOs/u${bgFactor}.png) center / cover`;
+            }else if(obsFactor > 6){
+                planet[0].style.background = `url(public/UFOs/as.webp) center / cover`;
+            }
+        }
+    }
 
 
 
@@ -115,7 +126,8 @@ setInterval(() => {
     console.log(planet[0].style.transitionDuration)
 }, 1000);
 
-    // "2 planets", "change planet livery", time/speed (diff for diff planets), asteroids, UFOs
+    // time/speed (diff for diff planets), Preload everyimage
+    // relative size increase
 
     // Check gh md to find misjudged features
 
