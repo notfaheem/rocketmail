@@ -53,11 +53,11 @@ let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
     const windSize = game.getBoundingClientRect();
 
-    
-    planet.forEach(plt => {
-        plt.style.transform = "translateX(10vw)"
-        plt.style.transitionDuration = "5s";
-    });
+    if(index){
+        planet[index].style.transform = "translateX(10vw)"
+        planet[index].style.transitionDuration = "5s";
+
+    }
     
     if(score > 20){
         if (index== 0){
@@ -83,6 +83,7 @@ function planets (index){
         if (index== 0){
             if (planet.length < 2) {
                 clonePlanet()
+                planets(1)
             }
         }
     }
@@ -93,16 +94,8 @@ function planets (index){
 
 
     
-    if (score > 200) {
-        const sizeFactor = random(100, 150)
-        planet[0].style.width = `${sizeFactor}px`;
-        planet[0].style.height = `${sizeFactor}px`;
-    }
-    if (score > 300) {
-        if (planet[0].style.animation != "planetMove 2s linear infinite") {
-            planet[0].style.animation = "planetMove 2s linear infinite";
-        }
-    }
+    
+    
 
     const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
     if(index == 0){
@@ -124,7 +117,7 @@ setInterval(() => {
 
     // "2 planets", "change planet livery", time/speed (diff for diff planets), asteroids, UFOs
 
-    // Dealing with spawning planet at the middle/random position at finishing its animation
+    // Check gh md to find misjudged features
 
 planets(0)
 
