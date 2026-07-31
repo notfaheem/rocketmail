@@ -40,9 +40,9 @@ function scoreFun(){
     let scoreInt = setInterval(() => {
         score += 1;
         scoreLine.innerText = `Score : ${score}`;
-        if(gameOver){
-            clearInterval(scoreInt)
-        }
+        // if(gameOver){
+        //     clearInterval(scoreInt)                        for debugging 
+        // }
     }, 500);
 }
 scoreFun()
@@ -91,18 +91,8 @@ function planets (index){
 
 
 
-    if (score > 30) {
-        if (planet.length < 2) {
-            clonePlanet()
-        }
-    }
 
-    if (score > 100) {
-        
-
-        const bgFactor = random(0, 9);
-        planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
-    }
+    
     if (score > 200) {
         const sizeFactor = random(100, 150)
         planet[0].style.width = `${sizeFactor}px`;
@@ -115,7 +105,12 @@ function planets (index){
     }
 
     const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
-    planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
+    if(index == 0){
+        planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
+    }
+    if(index == 1){
+        planetWrapper[1].style.transform = `translateY(${planetPosition}px)`;
+    }
     planet.forEach(plt => {
         plt.style.transform = "translateX(-110vw)"
     });
@@ -154,12 +149,12 @@ function clonePlanet(){
     // planet[1].style.animationDelay = "2s"
     planet[1].addEventListener("transitionend", () => {
         console.log("Transition End")
-        if (planet[0].style.transitionDuration != "0s") {
-            planet[0].style.transitionDuration = "0s";
+        if (planet[1].style.transitionDuration != "0s") {
+            planet[1].style.transitionDuration = "0s";
         } else {
-            planet[0].style.transitionDuration = "5s";
+            planet[1].style.transitionDuration = "5s";
         }
-        planet[0].style.transform = "translateX(10vw)";
+        planet[1].style.transform = "translateX(10vw)";
 
         planets(1)
     })
