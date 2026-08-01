@@ -1,6 +1,7 @@
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
+const rocketImg = document.getElementById("rocket-img")
 let planet = document.querySelectorAll(".planet")
 
 let mouseY = 0;
@@ -40,7 +41,7 @@ function collision() {
     }
     if(isColliding){
         gameOver = true;
-        rocket.style.background= "url(public/rocket-boom.webp) center / cover"
+        rocketImg.style.background= "url(public/rocket-boom.webp) center / cover"
     }
     requestAnimationFrame(collision)
 }
@@ -54,14 +55,14 @@ function scoreFun(){
     let scoreInt = setInterval(() => {
         score += 1;
         scoreLine.innerText = score;
-        // if(gameOver){
-        //     clearInterval(scoreInt)                        for debugging 
-        // }
+        if(gameOver){
+            clearInterval(scoreInt)
+        }
     }, 500);
 }
 scoreFun()
 
-score = 450
+score = 85
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
