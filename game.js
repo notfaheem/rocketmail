@@ -5,6 +5,7 @@ let planet = document.querySelectorAll(".planet")
 
 let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
+    if(gameOver) return;
     const windSize = game.getBoundingClientRect();
     mouseY = e.clientY;
     if(mouseY < windSize.top + windSize.height * 0.15 || mouseY > windSize.top + windSize.height * 0.85){
@@ -21,12 +22,25 @@ function collision() {
     if (gameOver) return;
 
     const rocketArea = rocket.getBoundingClientRect();
-    const planetArea = planet[0].getBoundingClientRect();
-    const isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
-
+    let isColliding;
+    if (planet.length == 1){
+        console.log("single planet testing")
+        const planetArea = planet[0].getBoundingClientRect();
+        isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
+    }else if (planet.length == 2){
+        console.log("two planets testing")
+        const planetArea1 = planet[0].getBoundingClientRect();
+        const planetArea2 = planet[1].getBoundingClientRect();
+        isColliding = rocketArea.left < planetArea1.right && rocketArea.right > planetArea1.left && rocketArea.top < planetArea1.bottom && rocketArea.bottom > planetArea1.top;
+        if (isColliding == false){
+            isColliding = rocketArea.left < planetArea2.right && rocketArea.right > planetArea2.left && rocketArea.top < planetArea2.bottom && rocketArea.bottom > planetArea2.top;
+        }
+    }else{
+        console.log("Planet.length is more than 2 ig")
+    }
     if(isColliding){
         gameOver = true;
-        planet[0].classList.add("planet-pause")
+        rocket.style.background= "url(public/rocket-boom.webp) center / cover"
     }
     requestAnimationFrame(collision)
 }
@@ -158,10 +172,10 @@ function planets (index){
 }
 
 
-setInterval(() => {
-    console.log(planet[0].style.transform)
-    console.log(planet[0].style.transitionDuration)
-}, 1000);
+// setInterval(() => {
+//     console.log(planet[0].style.transform)
+//     console.log(planet[0].style.transitionDuration)
+// }, 1000);
 
     // time/speed (diff for diff planets), Preload everyimage
 
@@ -171,15 +185,12 @@ setInterval(() => {
 planets(0)
 
 planet[0].addEventListener("transitionend", ()=>{
-    console.log("Transition End")
     if(planet[0].style.transitionDuration != "0s"){
         planet[0].style.transitionDuration = "0s";
     }else{
         planet[0].style.transitionDuration = "5s";
     }
-    console.log("A")
     planet[0].style.transform = "translateX(10vw)";
-    console.log("B")
 
     planets(0)
 })
@@ -192,7 +203,6 @@ function clonePlanet(){
 
     // planet[1].style.animationDelay = "2s"
     planet[1].addEventListener("transitionend", () => {
-        console.log("Transition End")
         if (planet[1].style.transitionDuration != "0s") {
             planet[1].style.transitionDuration = "0s";
         } else {
