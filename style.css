@@ -41,6 +41,18 @@ body{
     top:50%;
     transform:translate(-50%, -50%);
 }
+.btn{
+    background:#000;
+    color:#fff;
+    padding:10px 20px;
+    border:3px solid #fff;
+    border-radius:15px;
+    transition:0.3s;
+}
+.btn:hover{
+    background:#fff;
+    color:#000;
+}
 section{
     width:100%;
     height:100vh;
@@ -131,3 +143,5 @@ section{
     left:50%;
     font-size:25px;
 }
+
+
