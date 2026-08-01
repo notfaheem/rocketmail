@@ -29,6 +29,7 @@ body{
     height:100vh;
     background:#000000db;
     backdrop-filter: blur(1px);
+    transition:1s;
 }
 .center{
     position: absolute;
@@ -146,16 +147,21 @@ section{
 }
 
 
+#go-bg{
+    opacity:0;
+    pointer-events: none;
+}
 #go{
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%, -50%);
+    transform:translate(-50%, 100%);
     text-align: center;
     background:#0000006c;
     border:2px solid #fff;
     border-radius: 20px;
     padding:20px 50px;
+    transition:1s;
 }
 #go .text{
     font-size:40px;

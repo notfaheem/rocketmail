@@ -25,11 +25,9 @@ function collision() {
     const rocketArea = rocket.getBoundingClientRect();
     let isColliding;
     if (planet.length == 1){
-        console.log("single planet testing")
         const planetArea = planet[0].getBoundingClientRect();
         isColliding = rocketArea.left < planetArea.right && rocketArea.right > planetArea.left && rocketArea.top < planetArea.bottom && rocketArea.bottom > planetArea.top;
     }else if (planet.length == 2){
-        console.log("two planets testing")
         const planetArea1 = planet[0].getBoundingClientRect();
         const planetArea2 = planet[1].getBoundingClientRect();
         isColliding = rocketArea.left < planetArea1.right && rocketArea.right > planetArea1.left && rocketArea.top < planetArea1.bottom && rocketArea.bottom > planetArea1.top;
@@ -41,7 +39,7 @@ function collision() {
     }
     if(isColliding){
         gameOver = true;
-        rocketImg.style.background= "url(public/rocket-boom.webp) center / cover"
+        rocketImg.style.background= "url(public/rocket-boom.webp) center / cover";
     }
     requestAnimationFrame(collision)
 }
@@ -49,6 +47,7 @@ requestAnimationFrame(collision)
 
 //score
 let score = 0;
+let hScore = Number(localStorage.getItem("hs"));
 const scoreLine = document.getElementById("score")
 function scoreFun(){
     
@@ -57,10 +56,33 @@ function scoreFun(){
         scoreLine.innerText = score;
         if(gameOver){
             clearInterval(scoreInt)
+            if(localStorage.getItem("hs") == undefined || Number(localStorage.getItem("hs")) < score){
+                hScore = score;
+                localStorage.setItem("hs" , score);
+            }
+            gameEnd();
         }
     }, 500);
 }
 scoreFun()
+
+//game over popup
+function gameEnd(){
+    const goBg = document.getElementById("go-bg");
+    const go = document.getElementById("go");
+    const goScore = document.getElementById("go-s");
+    const goHScore = document.getElementById("go-hs");
+
+    goBg.style.opacity = 1;
+    goBg.style.pointerEvents = "all";                                  // set time out for a second or more
+    go.style.transform = "translate(-50%, -50%)";
+    goBg.style.pointerEvents = "all";
+
+    goScore.innerText = `SCORE : ${score}`;
+    goHScore.innerText = `HIGH SCORE : ${hScore}`;
+}
+
+
 
 score = 85
 //planets
