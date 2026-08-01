@@ -39,7 +39,7 @@ function scoreFun(){
     
     let scoreInt = setInterval(() => {
         score += 1;
-        scoreLine.innerText = `Score : ${score}`;
+        scoreLine.innerText = score;
         // if(gameOver){
         //     clearInterval(scoreInt)                        for debugging 
         // }
@@ -47,13 +47,13 @@ function scoreFun(){
 }
 scoreFun()
 
-score = 450
+// score = 450
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
     const windSize = game.getBoundingClientRect();
 
-    if(index){
+    if(index != undefined){
         planet[index].style.transform = "translateX(10vw)"
         planet[index].style.transitionDuration = "5s";
 
@@ -142,9 +142,6 @@ function planets (index){
     }
 
 
-
-
-    
     
     
 
@@ -167,7 +164,7 @@ setInterval(() => {
 }, 1000);
 
     // time/speed (diff for diff planets), Preload everyimage
-    // relative size increase
+
 
     // Check gh md to find misjudged features
 
@@ -180,7 +177,9 @@ planet[0].addEventListener("transitionend", ()=>{
     }else{
         planet[0].style.transitionDuration = "5s";
     }
+    console.log("A")
     planet[0].style.transform = "translateX(10vw)";
+    console.log("B")
 
     planets(0)
 })
