@@ -47,7 +47,7 @@ function scoreFun(){
 }
 scoreFun()
 
-// score = 450
+score = 450
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
