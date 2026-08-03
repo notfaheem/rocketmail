@@ -75,7 +75,7 @@ function gameEnd(){
 
     setTimeout(() => {
         goBg.style.opacity = 1;
-        goBg.style.pointerEvents = "all";                                  // set time out for a second or more
+        goBg.style.pointerEvents = "all";
         go.style.transform = "translate(-50%, -50%)";
         goBg.style.pointerEvents = "all";
     }, 500);
