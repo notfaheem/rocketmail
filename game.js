@@ -84,7 +84,7 @@ function gameEnd(){
 
 
 
-score = 85
+score = 0
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
@@ -147,6 +147,11 @@ function planets (index){
             const sizeFactor = random(100, 150)
             planet[0].style.width = `${sizeFactor}px`;
             planet[0].style.height = `${sizeFactor}px`;
+        }
+        if (index == 1) {
+            const sizeFactor = random(100, 150)
+            planet[1].style.width = `${sizeFactor}px`;
+            planet[1].style.height = `${sizeFactor}px`;
         }
     }
     if(score > 450){
