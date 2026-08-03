@@ -237,4 +237,5 @@ section{
 #go-btn:hover{
     background:#000;
     color:#fff;
+    box-shadow: #fff 3px 3px 0 0;
 }
