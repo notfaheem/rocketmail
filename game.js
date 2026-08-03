@@ -1,3 +1,8 @@
+//loading 
+window.addEventListener("load", ()=>{
+    document.getElementById("loading");
+})
+
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
