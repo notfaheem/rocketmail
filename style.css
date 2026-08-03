@@ -64,6 +64,8 @@ body{
     top:0;
     left:0;
     z-index:10;
+    opacity:1;
+    transition:0.5s;
 }
 .load-img{
     width:200px;

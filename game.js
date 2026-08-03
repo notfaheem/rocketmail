@@ -1,6 +1,7 @@
 //loading 
 window.addEventListener("load", ()=>{
-    document.getElementById("loading");
+    const loading = document.getElementById("loading");
+    loading.style.opacity = 0
 })
 
 //movement
