@@ -195,7 +195,7 @@ function planets (index){
     
     
 
-    const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.85);
+    const planetPosition = random(windSize.top + windSize.height * 0.05, windSize.top + windSize.height * 0.75);
     if(index == 0){
         planetWrapper[0].style.transform = `translateY(${planetPosition}px)`;
     }
