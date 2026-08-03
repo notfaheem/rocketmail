@@ -55,11 +55,11 @@ function scoreFun(){
         score += 1;
         scoreLine.innerText = score;
         if(gameOver){
-            clearInterval(scoreInt)
             if(localStorage.getItem("hs") == undefined || Number(localStorage.getItem("hs")) < score){
                 hScore = score;
                 localStorage.setItem("hs" , score);
             }
+            clearInterval(scoreInt)
             gameEnd();
         }
     }, 500);
@@ -73,10 +73,12 @@ function gameEnd(){
     const goScore = document.getElementById("go-s");
     const goHScore = document.getElementById("go-hs");
 
-    goBg.style.opacity = 1;
-    goBg.style.pointerEvents = "all";                                  // set time out for a second or more
-    go.style.transform = "translate(-50%, -50%)";
-    goBg.style.pointerEvents = "all";
+    setTimeout(() => {
+        goBg.style.opacity = 1;
+        goBg.style.pointerEvents = "all";                                  // set time out for a second or more
+        go.style.transform = "translate(-50%, -50%)";
+        goBg.style.pointerEvents = "all";
+    }, 500);
 
     goScore.innerText = `SCORE : ${score}`;
     goHScore.innerText = `HIGH SCORE : ${hScore}`;
