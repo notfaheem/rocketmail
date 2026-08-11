@@ -111,21 +111,21 @@ function planets (index){
             planet[0].style.background = `url(public/Planets/planet0${bgFactor}.webp) center / cover`;
         }
     }
-    if(score > 40){
+    if(score > 30){
         if (index== 0){
             const sizeFactor = random(100, 120)
             planet[0].style.width = `${sizeFactor}px`;
             planet[0].style.height = `${sizeFactor}px`;
         }
     }
-    if(score > 60){
+    if(score > 40){
         if (index== 0){
             if(planet[0].style.transitionDuration != "4s"){
                 planet[0].style.transitionDuration = "4s"
             }
         }
     }
-    if(score > 90){
+    if(score > 50){
         if (index== 0){
             if (planet.length < 2) {
                 clonePlanet()
@@ -133,7 +133,7 @@ function planets (index){
             }
         }
     }
-    if(score > 150){
+    if(score > 60){
         if (index== 0){
             const obsFactor = random(1,10)
             if(obsFactor > 8){
@@ -144,14 +144,14 @@ function planets (index){
             }
         }
     }
-    if(score > 200){
+    if(score > 70){
         if (index== 1){
             if(planet[1].style.transitionDuration != "4s"){
                 planet[1].style.transitionDuration = "4s"
             }
         }
     }
-    if (score > 300) {
+    if (score > 80) {
         if (index == 0) {
             const sizeFactor = random(100, 150)
             planet[0].style.width = `${sizeFactor}px`;
@@ -163,28 +163,28 @@ function planets (index){
             planet[1].style.height = `${sizeFactor}px`;
         }
     }
-    if(score > 450){
+    if(score > 100){
         if (index== 0){
             if(planet[0].style.transitionDuration != "3s"){
                 planet[0].style.transitionDuration = "3s"
             }
         }
     }
-    if(score > 550){
+    if(score > 150){
         if (index== 1){
             if(planet[1].style.transitionDuration != "3s"){
                 planet[1].style.transitionDuration = "3s"
             }
         }
     }
-    if(score > 700){
+    if(score > 200){
         if (index== 0){
             if(planet[0].style.transitionDuration != "2s"){
                 planet[0].style.transitionDuration = "2s"
             }
         }
     }
-    if(score > 800){
+    if(score > 250){
         if (index== 1){
             if(planet[1].style.transitionDuration != "2s"){
                 planet[1].style.transitionDuration = "2s"
@@ -214,7 +214,6 @@ function planets (index){
 //     console.log(planet[0].style.transitionDuration)
 // }, 1000);
 
-    // time/speed (diff for diff planets), Preload everyimage
 
 
     // Check gh md to find misjudged features
