@@ -239,3 +239,22 @@ section{
     color:#fff;
     box-shadow: #fff 3px 3px 0 0;
 }
+
+
+#bt-cont{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+}
+#bt1{
+    font-size:30px;
+    color:#ffffff52;
+    font-family:"Rock Salt", cursive;
+}
+#bt2{
+    font-size:100px;
+    color:#ffffff62;
+    font-family:"Rock Salt", cursive;
+}
