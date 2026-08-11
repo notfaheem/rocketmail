@@ -247,6 +247,9 @@ section{
     left:50%;
     transform:translate(-50%,-50%);
     width:100%;
+    opacity:0;
+    pointer-events: none;
+    transition:1s;
 }
 #bt1{
     font-size:30px;

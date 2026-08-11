@@ -56,11 +56,29 @@ requestAnimationFrame(collision)
 let score = 0;
 let hScore = Number(localStorage.getItem("hs"));
 const scoreLine = document.getElementById("score")
+
+const Btexts = document.getElementById("bt-cont")
+const Btext1 = document.getElementById("bt1")
+const Btext2 = document.getElementById("bt2")
+let highscoreshowed = false;
+
 function scoreFun(){
     
     let scoreInt = setInterval(() => {
         score += 1;
         scoreLine.innerText = score;
+
+        if(localStorage.getItem("hs") != undefined && Number(localStorage.getItem("hs")) < score && highscoreshowed == false){
+            Btext1.innerText = "New Highscore!";
+            Btext2.innerText = score
+            Btexts.style.opacity = 1;
+            setTimeout(() => {
+                Btexts.style.opacity = 0;  
+            }, 5000);
+
+            highscoreshowed = true;
+        }
+
         if(gameOver){
             if(localStorage.getItem("hs") == undefined || Number(localStorage.getItem("hs")) < score){
                 hScore = score;
