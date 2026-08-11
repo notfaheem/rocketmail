@@ -252,6 +252,9 @@ planet[0].addEventListener("transitionend", ()=>{
         planet[0].style.transitionDuration = "0s";
     }else{
         planet[0].style.transitionDuration = "5s";
+        if(gameOver){
+            planet[0].style.transitionDuration = "0s";
+        }
     }
     planet[0].style.transform = "translateX(10vw)";
 
@@ -270,6 +273,9 @@ function clonePlanet(){
             planet[1].style.transitionDuration = "0s";
         } else {
             planet[1].style.transitionDuration = "5s";
+            if(gameOver){
+                planet[1].style.transitionDuration = "0s";
+            }
         }
         planet[1].style.transform = "translateX(10vw)";
 
