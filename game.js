@@ -89,14 +89,15 @@ function scoreFun(){
         }
     }, 500);
 }
-scoreFun()
+
 
 //game over popup
+
+const goBg = document.getElementById("go-bg");
+const go = document.getElementById("go");
+const goScore = document.getElementById("go-s");
+const goHScore = document.getElementById("go-hs");
 function gameEnd(){
-    const goBg = document.getElementById("go-bg");
-    const go = document.getElementById("go");
-    const goScore = document.getElementById("go-s");
-    const goHScore = document.getElementById("go-hs");
 
     setTimeout(() => {
         goBg.style.opacity = 1;
@@ -110,8 +111,17 @@ function gameEnd(){
 }
 
 
+// play again
+const playAgainBtn = document.getElementById("go-btn")
+playAgainBtn.addEventListener("click", ()=>{
+    console.log("Restart")
+    goBg.style.opacity = 0;
+    goBg.style.pointerEvents = "none";
+    go.style.transform = "translate(-50%, 100%)";
+    goBg.style.pointerEvents = "none";
+    startGame()
+})
 
-score = 0
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
@@ -245,7 +255,6 @@ function planets (index){
 
     // Check gh md to find misjudged features
 
-planets(0)
 
 planet[0].addEventListener("transitionend", ()=>{
     if(planet[0].style.transitionDuration != "0s"){
@@ -288,3 +297,14 @@ function random (min, max){
     const maxFloored = Math.floor(max)
     return Math.floor(Math.random() * (maxFloored - minCeild + 1) + minCeild);
 }
+
+
+// game starting fn
+function startGame (){
+    score = 0
+    planets(0)
+    scoreFun()
+    gameOver = false;
+    highscoreshowed = false;
+}
+startGame()
