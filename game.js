@@ -117,6 +117,15 @@ let planetWrapper = document.querySelectorAll(".planet-wrapper")
 function planets (index){
     const windSize = game.getBoundingClientRect();
 
+    if(gameOver){
+        planet[0].style.transitionDuration = "0s";
+        if (planet.length == 2) {
+            planet[1].style.transitionDuration = "0s";
+            }
+        return
+    }
+
+
     if(index != undefined){
         planet[index].style.transform = "translateX(10vw)"
         planet[index].style.transitionDuration = "5s";
