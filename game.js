@@ -27,7 +27,6 @@ document.addEventListener("mousemove", (e)=>{
 //collision
 let gameOver = false;
 function collision() {
-    if (gameOver) return;
 
     const rocketArea = rocket.getBoundingClientRect();
     let isColliding;
@@ -114,7 +113,6 @@ function gameEnd(){
 // play again
 const playAgainBtn = document.getElementById("go-btn")
 playAgainBtn.addEventListener("click", ()=>{
-    console.log("Restart")
     goBg.style.opacity = 0;
     goBg.style.pointerEvents = "none";
     go.style.transform = "translate(-50%, 100%)";
@@ -302,9 +300,10 @@ function random (min, max){
 // game starting fn
 function startGame (){
     score = 0
-    planets(0)
-    scoreFun()
     gameOver = false;
     highscoreshowed = false;
+    rocketImg.style.background= "url(public/rocket-c.webp) center / cover";
+    planets(0)
+    scoreFun()
 }
 startGame()
