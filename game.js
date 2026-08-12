@@ -463,4 +463,15 @@ abtx.addEventListener("click", ()=>{
     about.style.pointerEvents = "none";
 })
 
-// main menu in crash screen
+// menu btn
+const menubtn = document.getElementById("menu-btn")
+menubtn.addEventListener("click",()=>{
+    goBg.style.opacity = 0;
+    goBg.style.pointerEvents = "none";
+    go.style.transform = "translate(-50%, 100%)";
+    removePlanet()
+
+    homeScrn.style.transform = "translate(-50%,-50%)";
+    hcbg.style.opacity = 1;
+    hcbg.style.pointerEvents = "all";
+})
