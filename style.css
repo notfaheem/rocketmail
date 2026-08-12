@@ -274,4 +274,29 @@ section{
     border-radius: 20px;
     border:2px solid #fff;
     box-shadow:#fff 5px 5px 0 0 ;
+    transition:1s;
+    pointer-events: all;
+}
+#hc-bg{
+    opacity:1;
+    pointer-events: all;
+}
+.hbtn-cont{
+    position:absolute;
+    top:50%;
+    left:25%;
+    transform:translate(-50%, -25%);
+    gap:10px;
+}
+
+#play-btn{
+    width:300px;
+    background:#fff;
+    color:#000;
+    font-size:20px;
+    font-family:"Rock Salt", cursive;
+}
+#play-btn:hover{
+    background:#000;
+    color:#fff;
 }
