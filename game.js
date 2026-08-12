@@ -11,6 +11,18 @@ const crash = new Audio("public/crash.ogg")
 crash.volume = 0.5;
 mainBgm.loop = true;
 gameBgm.loop = true;
+crash.preload = "auto";
+crash.load()
+function audio(){
+    mainBgm.currentTime = 0;
+    mainBgm.volume = 0.3
+    gameBgm.volume = 0.3
+    mainBgm.play();
+}
+document.addEventListener("click",()=>{
+    audio();
+}, {once:true})
+
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
@@ -53,6 +65,8 @@ function collision() {
     }
     if(isColliding){
         gameOver = true;
+        crash.play()
+        gameBgm.pause()
         rocketImg.style.background= "url(public/rocket-boom.webp) center / cover";
     }
     requestAnimationFrame(collision)
@@ -343,6 +357,10 @@ function rndmMsg(){
 // game starting fn
 const mail = document.getElementById("mail");
 function startGame (){
+    mainBgm.pause();
+    mainBgm.currentTime = 0;
+    gameBgm.currentTime = 0;
+    gameBgm.play();
     score = 0
     scoreLine.innerText = score;
     highscoreshowed = false;
