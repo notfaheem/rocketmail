@@ -298,12 +298,36 @@ function random (min, max){
     return Math.floor(Math.random() * (maxFloored - minCeild + 1) + minCeild);
 }
 
+// random messages 
+const messages = [
+    "Good luck with the flight!",
+    "Keep flying. The mail must arrive.",
+    "You're doing great!",
+    "Is that an asteroid... or a potato?",
+    "Stay alert, pilot.",
+    "The universe is a pretty big place.",
+    "Incoming! Dodge it!",
+    "Your destination is somewhere out there.",
+    "Careful... space gets weird.",
+    "Nice flying!",
+    "The mail won't deliver itself.",
+    "Keep going. You've got this!"
+];
 
+function rndmMsg(){
+    if(gameOver) return;
+    let timeInt = random(30000, 60000)
+    let msgindex = random(0,11)
+    setTimeout(()=>{
+        textShow(messages[msgindex], 5000)
+    },timeInt)
+}
 // game starting fn
 const mail = document.getElementById("mail");
 function startGame (){
     score = 0
     highscoreshowed = false;
+    rocket.style.transform = "translateX(100%)";
     rocketImg.style.background= "url(public/rocket-c.webp) center / cover";
     mail.classList.add("mail-a")
     setTimeout(() => {
@@ -311,6 +335,14 @@ function startGame (){
         planets(0)
         scoreFun()
         mail.classList.remove("mail-a")
+        textShow("Use mouse to move the Rocket and dodge the obstacles", 6000)
+        setTimeout(()=>{
+            if(localStorage.getItem("hs") != undefined){
+                console.log("FFAHHS")
+            }else{
+                textShow("You have got a very important mail to deliver to a very faaaarrr place, Good luck!", 7000)
+            }
+        }, 7000)
     }, 5000);
 }
 
@@ -345,4 +377,3 @@ function textShow(text1, time, text2){
         Btexts.style.opacity = 0;
     }, time);
 }
-textShow("Hello", 10000)

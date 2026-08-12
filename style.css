@@ -251,6 +251,8 @@ section{
     opacity:0;
     pointer-events: none;
     transition:1s;
+    width:70%;
+    text-align:center;
 }
 #bt1{
     font-size:30px;
