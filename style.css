@@ -298,6 +298,10 @@ section{
     color:#000;
     font-size:20px;
     font-family:"Rock Salt", cursive;
+    margin: 0 0 10px 0;
+}
+#play-btn:hover{
+    box-shadow: #fff 5px 5px 0 0 ;
 }
 #play-btn:hover{
     background:#000;

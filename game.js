@@ -298,23 +298,48 @@ function random (min, max){
 
 
 // game starting fn
+const mail = document.getElementById("mail")
 function startGame (){
     score = 0
     gameOver = false;
     highscoreshowed = false;
     rocketImg.style.background= "url(public/rocket-c.webp) center / cover";
-    planets(0)
-    scoreFun()
+    
+    setTimeout(() => {
+        planets(0)
+        scoreFun()
+    }, 5000);
 }
 
 //  playbtn
 const homeScrn = document.getElementById("home-scrn");
 const hcbg = document.getElementById("hc-bg");
-const playBtn = document.getElementById("playBtn");
+const playBtn = document.getElementById("play-btn");
 playBtn.addEventListener("click", ()=>{
     homeScrn.style.transform = "translate(-50%,100%)";
     hcbg.style.opacity = 0;
-    hcbg.style.pointerEvents = 0;
+    hcbg.style.pointerEvents = "none";
 
-    startGame()
+    setTimeout(() => {
+        startGame()
+    }, 2000);
 })
+
+// text fn
+function textShow(text1, time, text2){
+    if(text1 != undefined){
+        Btext1.innerText = text1;
+    }else{
+        Btext1.innerText = "";
+    }
+    if(text2 != undefined){
+        Btext2.innerText = text2;
+    }else{
+        Btext2.innerText = "";
+    }
+    Btexts.style.opacity = 1;
+    setTimeout(() => {
+        Btexts.style.opacity = 0;
+    }, time);
+}
+textShow("Hello", 10000)
