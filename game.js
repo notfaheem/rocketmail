@@ -324,18 +324,21 @@ const messages = [
 
 function rndmMsg(){
     if(gameOver) return;
-    let timeInt = random(30000, 60000)
-    let msgindex = random(0,11)
-    setTimeout(()=>{
-        textShow(messages[msgindex], 5000)
-        rndmMsg()
-    },timeInt)
+    if (Number(localStorage.getItem("hs")) - 20 > score || Number(localStorage.getItem("hs")) + 20 < score){
+        let timeInt = random(30000, 60000)
+        let msgindex = random(0, 11)
+        setTimeout(() => {
+            textShow(messages[msgindex], 5000)
+            rndmMsg()
+        }, timeInt)
+    }
 }
 
 // game starting fn
 const mail = document.getElementById("mail");
 function startGame (){
     score = 0
+    scoreLine.innerText = score;
     highscoreshowed = false;
     rocket.style.transform = "translateX(100%)";
     rocketImg.style.background= "url(public/rocket-c.webp) center / cover";
