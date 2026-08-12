@@ -288,8 +288,11 @@ section{
     transform:translate(-50%, -25%);
     gap:10px;
 }
-
+.home-btn{
+    width:150px;
+}
 #play-btn{
+    padding:0;
     width:300px;
     background:#fff;
     color:#000;

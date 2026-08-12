@@ -306,4 +306,15 @@ function startGame (){
     planets(0)
     scoreFun()
 }
-startGame()
+
+//  playbtn
+const homeScrn = document.getElementById("home-scrn");
+const hcbg = document.getElementById("hc-bg");
+const playBtn = document.getElementById("playBtn");
+playBtn.addEventListener("click", ()=>{
+    homeScrn.style.transform = "translate(-50%,100%)";
+    hcbg.style.opacity = 0;
+    hcbg.style.pointerEvents = 0;
+
+    startGame()
+})
