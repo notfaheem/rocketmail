@@ -336,3 +336,47 @@ section{
         top:100px;
     }
 }
+
+.h-pop{
+    width:50%;
+    background-color: #000;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius: 20px;
+    border:2px solid #fff;
+    box-shadow:#fff 5px 5px 0 0 ;
+    transition:0.5s;
+    pointer-events: all;
+    padding: 20px 50px;
+}
+.subhead{
+    font-size:40px;
+    font-family:"Rock Salt", cursive;
+}
+.x{
+    font-size: 40px;
+    font-family:Sans;
+    cursor:pointer;
+}
+hr{
+    margin:10px 0;
+}
+.setts{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:10px;
+}
+.setts input{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%)
+}
+.setts div{
+    text-align: center;
+}
+#settings{
+    opacity: 0;
+    pointer-events: none;
+}

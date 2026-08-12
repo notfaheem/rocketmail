@@ -415,3 +415,40 @@ function textShow(text1, time, text2){
         Btexts.style.opacity = 0;
     }, time);
 }
+
+
+//settings
+const settings = document.getElementById("settings")
+const setbtn = document.getElementById("settings-btn")
+const setx = document.getElementById("set-x")
+const bgmToggle = document.getElementById("bgm-checkbox");
+const sfxToggle = document.getElementById("sfx-checkbox");
+setbtn.addEventListener("click", ()=>{
+    settings.style.opacity = 1;
+    settings.style.pointerEvents = "all"
+})
+setx.addEventListener("click",()=>{
+    settings.style.opacity = 0;
+    settings.style.pointerEvents = "none"
+})
+bgmToggle.addEventListener("change",(event)=>{
+    if(event.target.checked){
+        mainBgm.volume = 0.3
+        gameBgm.volume = 0.3
+        mainBgm.play()
+    }else{
+        mainBgm.pause()
+        mainBgm.volume = 0
+        gameBgm.volume = 0
+    }
+})
+sfxToggle.addEventListener("change",(event)=>{
+    if(event.target.checked){
+        crash.volume = 0.5
+    }else{
+        crash.volume = 0
+    }
+})
+
+
+// main menu in crash screen
