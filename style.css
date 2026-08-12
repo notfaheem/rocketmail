@@ -138,6 +138,7 @@ section{
     position:absolute;
     left:30%;
     top:-55px;
+    transform:translateX(100%);
     rotate: 90deg;
     transition: rotate 0.5s, top 0.1s;
     filter:contrast(1.5) brightness(0.7);
@@ -306,4 +307,30 @@ section{
 #play-btn:hover{
     background:#000;
     color:#fff;
+}
+
+
+#mail{
+    position: absolute;
+    top:-50px;
+    left:30%;
+    width:50px;
+    transition:1s;
+}
+.mail-a{
+    animation: 3s mail ;
+}
+@keyframes mail {
+    0%{
+        top:-50px;
+        transform: scale(1) rotate(0deg);
+    }
+    80%{
+        top:150px;
+        transform:scale(1) rotate(300deg)
+    }
+    100%{
+        transform: scale(0) rotate(0deg);
+        top:100px;
+    }
 }

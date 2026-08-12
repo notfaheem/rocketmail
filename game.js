@@ -13,19 +13,21 @@ let planet = document.querySelectorAll(".planet")
 
 let mouseY = 0;
 document.addEventListener("mousemove", (e)=>{
-    if(gameOver) return;
-    const windSize = game.getBoundingClientRect();
-    mouseY = e.clientY;
-    if(mouseY < windSize.top + windSize.height * 0.15 || mouseY > windSize.top + windSize.height * 0.85){
-        return;
+    // if(gameOver) return;
+    if (gameOver == false) {
+        const windSize = game.getBoundingClientRect();
+        mouseY = e.clientY;
+        if (mouseY < windSize.top + windSize.height * 0.15 || mouseY > windSize.top + windSize.height * 0.85) {
+            return;
+        }
+        mouseY = mouseY - ((rocket.getBoundingClientRect().height) / 2)
+        rocket.style.transform = `translateX(${mouseY}px)`;
     }
-    mouseY = mouseY - ((rocket.getBoundingClientRect().height)/2)
-    rocket.style.transform = `translateX(${mouseY}px)`;
 })
 
 
 //collision
-let gameOver = false;
+let gameOver = true;
 function collision() {
 
     const rocketArea = rocket.getBoundingClientRect();
@@ -298,16 +300,17 @@ function random (min, max){
 
 
 // game starting fn
-const mail = document.getElementById("mail")
+const mail = document.getElementById("mail");
 function startGame (){
     score = 0
-    gameOver = false;
     highscoreshowed = false;
     rocketImg.style.background= "url(public/rocket-c.webp) center / cover";
-    
+    mail.classList.add("mail-a")
     setTimeout(() => {
+        gameOver = false;
         planets(0)
         scoreFun()
+        mail.classList.remove("mail-a")
     }, 5000);
 }
 
@@ -322,7 +325,7 @@ playBtn.addEventListener("click", ()=>{
 
     setTimeout(() => {
         startGame()
-    }, 2000);
+    }, 1500);
 })
 
 // text fn
