@@ -4,7 +4,13 @@ window.addEventListener("load", ()=>{
     loading.style.opacity = 0;
     loading.style.pointerEvents = "none";
 })
-
+// bgms
+const mainBgm = new Audio("public/mainbgm.ogg")
+const gameBgm = new Audio("public/gamebgm.ogg")
+const crash = new Audio("public/crash.ogg")
+crash.volume = 0.5;
+mainBgm.loop = true;
+gameBgm.loop = true;
 //movement
 const game = document.getElementById("game");
 const rocket = document.getElementById("rocket");
