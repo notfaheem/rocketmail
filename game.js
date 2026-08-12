@@ -112,6 +112,12 @@ function scoreFun(){
 }
 
 
+// mobile warning
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+if(isMobile){
+    alert("This game doesn't work properly on a touch device.")
+}
+
 //game over popup
 
 const goBg = document.getElementById("go-bg");
@@ -357,6 +363,7 @@ function rndmMsg(){
 // game starting fn
 const mail = document.getElementById("mail");
 function startGame (){
+    textShow("",100)
     mainBgm.pause();
     mainBgm.currentTime = 0;
     gameBgm.currentTime = 0;
