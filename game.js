@@ -113,14 +113,22 @@ function gameEnd(){
 
 
 // play again
-const playAgainBtn = document.getElementById("go-btn")
+const playAgainBtn = document.getElementById("go-btn");
 playAgainBtn.addEventListener("click", ()=>{
     goBg.style.opacity = 0;
     goBg.style.pointerEvents = "none";
     go.style.transform = "translate(-50%, 100%)";
-    goBg.style.pointerEvents = "none";
+    removePlanet()
     startGame()
 })
+
+function removePlanet(){
+    if (planet.length > 1){
+        planetWrapper[1].remove();
+        planet = document.querySelectorAll(".planet")
+        planetWrapper = document.querySelectorAll(".planet-wrapper")
+    }
+}
 
 //planets
 let planetWrapper = document.querySelectorAll(".planet-wrapper")
@@ -320,8 +328,10 @@ function rndmMsg(){
     let msgindex = random(0,11)
     setTimeout(()=>{
         textShow(messages[msgindex], 5000)
+        rndmMsg()
     },timeInt)
 }
+
 // game starting fn
 const mail = document.getElementById("mail");
 function startGame (){
@@ -342,6 +352,7 @@ function startGame (){
             }else{
                 textShow("You have got a very important mail to deliver to a very faaaarrr place, Good luck!", 7000)
             }
+            rndmMsg()
         }, 7000)
     }, 5000);
 }
