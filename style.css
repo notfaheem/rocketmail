@@ -376,7 +376,13 @@ hr{
 .setts div{
     text-align: center;
 }
-#settings{
+#settings , #about{
     opacity: 0;
     pointer-events: none;
+}
+#about div{
+    text-align: center;
+}
+.a{
+    color:#ffbbbb;
 }

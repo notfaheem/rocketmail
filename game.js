@@ -450,5 +450,17 @@ sfxToggle.addEventListener("change",(event)=>{
     }
 })
 
+//about
+const about = document.getElementById("about");
+const abtbtn = document.getElementById("about-btn")
+const abtx = document.getElementById("abt-x");
+abtbtn.addEventListener("click", ()=>{
+    about.style.opacity = 1;
+    about.style.pointerEvents = "all";
+})
+abtx.addEventListener("click", ()=>{
+    about.style.opacity = 0;
+    about.style.pointerEvents = "none";
+})
 
 // main menu in crash screen
