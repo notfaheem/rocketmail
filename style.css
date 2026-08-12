@@ -261,3 +261,17 @@ section{
     color:#ffffff62;
     font-family:"Rock Salt", cursive;
 }
+
+#home-scrn{
+    width:80%;
+    height:80%;
+    background:url(public/h-bg.jpg);
+    background-size: cover;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius: 20px;
+    border:2px solid #fff;
+    box-shadow:#fff 5px 5px 0 0 ;
+}
