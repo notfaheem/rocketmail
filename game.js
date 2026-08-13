@@ -119,7 +119,6 @@ if(isMobile){
 }
 
 //game over popup
-
 const goBg = document.getElementById("go-bg");
 const go = document.getElementById("go");
 const goScore = document.getElementById("go-s");
@@ -278,16 +277,6 @@ function planets (index){
         plt.style.transform = "translateX(-110vw)"
     });
 }
-
-
-// setInterval(() => {
-//     console.log(planet[0].style.transform)
-//     console.log(planet[0].style.transitionDuration)
-// }, 1000);
-
-
-
-    // Check gh md to find misjudged features
 
 
 planet[0].addEventListener("transitionend", ()=>{
