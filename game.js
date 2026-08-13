@@ -383,10 +383,11 @@ function startGame (){
         planets(0)
         scoreFun()
         mail.classList.remove("mail-a")
+        rocket.classList.add("rocket-border")
         textShow("Use mouse to move the Rocket and dodge the obstacles", 6000)
         setTimeout(()=>{
             if(localStorage.getItem("hs") != undefined){
-                console.log("FFAHHS")
+                rocket.classList.remove("rocket-border")
             }else{
                 textShow("You have got a very important mail to deliver to a very faaaarrr place, Good luck!", 7000)
             }

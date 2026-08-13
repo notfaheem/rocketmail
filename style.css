@@ -142,7 +142,17 @@ section{
     rotate: 90deg;
     transition: rotate 0.5s, top 0.1s;
     filter:contrast(1.5) brightness(0.7);
-    border:1px solid #f00;
+}
+.rocket-border{
+    animation: rb 1s 2 forwards;
+}
+@keyframes rb{
+    0%, 100%{
+        border: none;
+    }
+    50%{
+        border: 1px solid #f00;
+    }
 }
 #rocket-img{
     width: 100%;
