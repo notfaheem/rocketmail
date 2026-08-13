@@ -348,13 +348,17 @@ const messages = [
     "Keep going. You've got this!"
 ];
 
+let isRunning = false;
 function rndmMsg(){
     if(gameOver) return;
+    if(isRunning) return;
     if (Number(localStorage.getItem("hs")) - 20 > score || Number(localStorage.getItem("hs")) + 20 < score){
+        isRunning = true;
         let timeInt = random(30000, 60000)
         let msgindex = random(0, 11)
         setTimeout(() => {
             textShow(messages[msgindex], 5000)
+            isRunning = false;
             rndmMsg()
         }, timeInt)
     }
